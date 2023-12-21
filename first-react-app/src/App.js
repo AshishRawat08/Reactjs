@@ -1,20 +1,23 @@
 import "./App.css";
-import ClassComponent from "./components/ClassComponent";
-import FunctionComponent from "./components/FunctionComponent";
+import ClassComponent from "./pages/ClassComponent";
+import FunctionComponent from "./pages/FunctionComponent";
 import { useState } from "react";
+import { Routes, Route } from 'react-router-dom';
+import BaseHoc from "./hoc/Basehoc";
 
 function App() {
   const author = "William";
   const [ name, setName] = useState("Ashish");
   return (
-    <div className="App">
-      <p>Class Components</p>
-      <ClassComponent />
-      <br />
-      <p>Function Components</p>
-      {/* <FunctionComponent name = {"Ashish"} age = {23} author= {author} /> */}
-      <FunctionComponent name = {name}  age = {23} author= {author} setName = {setName}/>
-    </div>
+    <Routes>
+    <Route path="/" element ={<BaseHoc><ClassComponent /></BaseHoc>}/>
+    <Route path="/functional-component" element ={<BaseHoc><FunctionComponent
+    name = {name}
+    age = {34}
+    author = {author}
+    setName = {setName} /></BaseHoc>}/>
+   </Routes>
+    
   );
 }
 

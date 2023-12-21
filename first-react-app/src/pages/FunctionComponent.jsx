@@ -4,7 +4,7 @@ import React, { useState} from "react";
 // const  FunctionComponent = () => {}      both are same 
 function FunctionComponent(props) {
     const [ changeName, setChangeName ] = useState("");
-
+    
     const [ myname, setMyname] = useState();
 
     const[ count, setCount]= useState(0);
